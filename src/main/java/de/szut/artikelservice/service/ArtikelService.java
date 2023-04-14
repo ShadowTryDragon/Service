@@ -6,10 +6,11 @@ import de.szut.artikelservice.model.Artikel;
 import java.util.List;
 
 public class ArtikelService {
+
     private ArtikelDAO artikelDAO;
 
-    public ArtikelService(ArtikelDAO artikelDAO) {
-        this.artikelDAO = artikelDAO;
+    public ArtikelService() {
+        this.artikelDAO = new ArtikelDAO();
     }
     public Artikel add( Artikel artikel) {
         artikelDAO.insert(artikel);
@@ -21,8 +22,13 @@ public class ArtikelService {
     public List<Artikel> read() {
         return artikelDAO.findAll();
     }
-    public Artikel update() {
-        return artikelDAO.update();
+    public Artikel update(Artikel artikel) {
+        artikelDAO.update(artikel);
+        return artikelDAO.findbyID(artikel.getId());
+    }
+    public Artikel delete(Artikel artikel) {
+        artikelDAO.delete(artikel.getId());
+        return artikelDAO.findbyID(artikel.getId());
     }
 
 
