@@ -1,6 +1,6 @@
 package de.szut.artikelservice.service;
 
-import de.szut.artikelservice.depository.ArtikelDAO;
+import de.szut.artikelservice.repository.ArtikelDAO;
 import de.szut.artikelservice.model.Artikel;
 
 import java.util.List;
@@ -26,9 +26,9 @@ public class ArtikelService {
         artikelDAO.update(artikel);
         return artikelDAO.findbyID(artikel.getId());
     }
-    public Artikel delete(Artikel artikel) {
-        artikelDAO.delete(artikel.getId());
-        return artikelDAO.findbyID(artikel.getId());
+    public Artikel delete(long id) {
+        artikelDAO.delete(id);
+        return artikelDAO.findbyID(id);
     }
 
 

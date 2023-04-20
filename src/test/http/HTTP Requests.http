@@ -1,0 +1,13 @@
+### Auslese
+GET http://localhost:8080/myappdata/articles
+Accept: application/json
+### ADD
+POST http://localhost:8080/myappdata/articles
+Content-Type: application/json;
+### Artikel Ändern
+PUT http://localhost:8080/myappdata/articles/3
+Content-Type: application/json
+### Löschen
+DELETE http://localhost:8080/myappdata/articles/3
+Accept: application/json
+
